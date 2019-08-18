@@ -1,0 +1,73 @@
+$window-shades: rgb(255, 255, 255),
+rgb(253, 181, 218),
+rgb(253, 181, 218),
+rgb(164, 81, 123),
+rgb(164, 81, 123);
+$background: url("https://i.redd.it/k4o8nz5vfiyy.gif");
+
+$active-window-title-background: linear-gradient(90deg, #ff6ad5, #c774e8, #ad8cff, #8795e8, #94d0ff);
+
+@import './_win-classic';
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+
+.shell {
+  background-size: 100% 100%;
+  cursor: url("../graphics/cursor-aesthetic.png"), auto !important;
+}
+
+.window {
+  outline: 0px solid transparent;
+  transition: outline 1s;
+  transform-style: preserve-3d;
+}
+.window.active {
+  outline: 5px solid cyan;
+  -webkit-animation: Vaporwave 1s linear infinite;
+  -moz-animation: Vaporwave 1s linear infinite;
+  animation: Vaporwave 1s linear infinite;
+}
+.window > .window__title {
+  transition: background 1s;
+}
+
+@mixin keyframes($animationName)
+{
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName}  {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(Vaporwave) {
+  0% {
+    outline-color: #ced9ed;
+  }
+  
+  20% {
+    outline-color: #cfc7fa;
+  }
+
+  40% {
+    outline-color: #e2c6ee;
+  }
+
+  60% {
+    outline-color: #efc8dd;
+  }
+
+  80% {
+    outline-color: #d7e9db;
+  }
+
+  100% {
+    outline-color: #ced9ed;
+  }
+}
