@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TatuArvela/html5-win-classic-shell/issues"
   },
-  "homepage": "https://github.com/TatuArvela/html5-win-classic-shell#readme"
+  "homepage": "https://github.com/TatuArvela/html5-win-classic-shell#readme",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
 }
