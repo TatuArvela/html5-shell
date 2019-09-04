@@ -1,0 +1,47 @@
+/* Shell
+   ========================================================================== */
+
+#{$shell} *,
+#{$shell} ::after,
+#{$shell} ::before {
+  box-sizing: border-box;
+  user-select: none;
+  -moz-user-select: none;
+  image-rendering: crisp-edges;
+  cursor: inherit;
+}
+
+#{$shell} {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  color: $text;
+  background: $background;
+  font-size: 12px;
+  font-family: "Microsoft Sans Serif", sans-serif !important;
+  cursor: url("../cursors/default.png"), default !important;
+}
+
+.progress {
+  cursor: url("../cursors/progress.png"), progress !important;
+}
+
+.hidden {
+  visibility: hidden !important
+}
+
+#{$shell}:not(.ready) {
+  @extend .progress;
+
+  >.window-manager {
+    @extend .hidden;
+  }
+}
+
+.window-manager {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}

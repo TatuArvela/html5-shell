@@ -1,0 +1,220 @@
+/* Forms
+   ========================================================================== */
+
+.form__input,
+.form__button,
+.form__select {
+  background: nth($window-shades, 1);
+  border-bottom: 1px solid nth($window-shades, 2);
+  border-left: 1px solid nth($window-shades, 5);
+  border-radius: 0;
+  border-right: 1px solid nth($window-shades, 2);
+  border-top: 1px solid nth($window-shades, 5);
+  box-shadow: 0.5px 0.5px 0 0.5px nth($window-shades, 1), 0 0 0 1px nth($window-shades, 4);
+  color: nth($window-shades, 5);
+  display: block;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  font-size: 12px;
+  margin: 3px 4px;
+  min-height: 13px;
+  outline: none;
+  padding: 1px;
+  user-select: text;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: nth($window-shades, 4) !important;
+    background: nth($window-shades, 3);
+  }
+}
+
+.form__input {
+  height: 18px;
+  cursor: url("../cursors/text.png"), text;
+}
+
+.form__button {
+  margin: 2px;
+  padding: 2px 4px;
+  min-height: 23px;
+  min-width: 75px;
+  outline: none;
+  box-shadow: -1px -1px 0 0 nth($window-shades, 1), 0 -1px 0 0 nth($window-shades, 1), -1px 0 0 0 nth($window-shades, 1), 0 0 0 1px nth($window-shades, 5);
+  border-top: 1px solid nth($window-shades, 3);
+  border-left: 1px solid nth($window-shades, 3);
+  border-bottom: 1px solid nth($window-shades, 4);
+  border-right: 1px solid nth($window-shades, 4);
+  background: nth($window-shades, 3);
+  font-family: "Microsoft Sans Serif", sans-serif;
+  user-select: none;
+
+  &:focus,
+  &:active {
+    box-shadow: -1px -1px 0 0 nth($window-shades, 5), 0 -1px 0 0 nth($window-shades, 5), -1px 0 0 0 nth($window-shades, 5), 0 0 0 1px nth($window-shades, 5);
+  }
+
+  &:focus {
+    border-top: 1px solid nth($window-shades, 1);
+    border-left: 1px solid nth($window-shades, 1);
+    border-bottom: 1px solid nth($window-shades, 5);
+    border-right: 1px solid nth($window-shades, 5);
+  }
+
+  &:active {
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 3px;
+    padding-bottom: 1px;
+    border-top: 1px solid nth($window-shades, 5);
+    border-left: 1px solid nth($window-shades, 5);
+    border-bottom: 1px solid nth($window-shades, 1);
+    border-right: 1px solid nth($window-shades, 1);
+  }
+}
+
+::-moz-selection {
+  color: nth($window-shades, 1);
+  background: $active;
+}
+
+::selection {
+  color: nth($window-shades, 1);
+  background: $active;
+}
+
+/**
+    * Select
+    */
+
+select,
+.ui-selectmenu-button {
+  padding: 0px 20px 0px 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  white-space: nowrap;
+
+  //background-image: url("dropdown.png");
+  background-color: nth($window-shades, 1);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+select:active,
+.ui-selectmenu-button:active {
+  //background-image: url("dropdown-pressed.png");
+}
+
+.ui-selectmenu-text {
+  position: absolute;
+  left: 1px;
+  right: 17px;
+  top: 1px;
+  bottom: 1px;
+  padding-left: 1px;
+}
+
+.ui-selectmenu-menu ul li:hover,
+.ui-selectmenu-button:focus:not(.ui-selectmenu-button-open)>.ui-selectmenu-text {
+  color: nth($window-shades, 1);
+  background: $active;
+  border: 1px dotted #f8fc80;
+}
+
+.ui-selectmenu-menu {
+  visibility: hidden;
+  display: block;
+  width: 200px;
+  border: 1px solid nth($window-shades, 5);
+  background: nth($window-shades, 1);
+}
+
+.ui-selectmenu-menu.ui-selectmenu-open {
+  visibility: visible;
+}
+
+.ui-selectmenu-icon {
+  display: none;
+}
+
+.ui-selectmenu-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ui-selectmenu-menu ul li {
+  padding: 2px;
+}
+
+.ui-selectmenu-menu ul li:hover {
+  padding: 1px;
+}
+
+/**
+    * Time inputs
+    */
+
+.form__time-input-group {
+  position: relative;
+  display: block;
+  margin: 3px 2px 3px 4px;
+
+  .form__input[data-type="time"] {
+    -moz-appearance: none;
+    margin: 0px;
+    width: calc(100% - 16px);
+
+    &::-webkit-clear-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+}
+
+.form__time-input--increase,
+.form__time-input--decrease {
+  position: absolute;
+  right: 0px;
+  height: 7px;
+  width: 14px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  min-height: unset;
+  min-width: unset;
+  box-shadow: -1px -1px 0 0 nth($window-shades, 3), 0 -1px 0 0 nth($window-shades, 3), -1px 0 0 0 nth($window-shades, 3), 0 0 0 1px nth($window-shades, 5);
+  border-top: 1px solid nth($window-shades, 1);
+  border-left: 1px solid nth($window-shades, 1);
+  border-bottom: 1px solid nth($window-shades, 4);
+  border-right: 1px solid nth($window-shades, 4);
+  background-position: 4px 1px;
+  background-repeat: no-repeat;
+
+  &:active {
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 3px;
+    padding-bottom: 1px;
+    box-shadow: -1px -1px 0 0 nth($window-shades, 4), 0 -1px 0 0 nth($window-shades, 4), -1px 0 0 0 nth($window-shades, 4), 0 0 0 1px nth($window-shades, 1);
+    border-top: 1px solid nth($window-shades, 5);
+    border-left: 1px solid nth($window-shades, 5);
+    border-bottom: 1px solid nth($window-shades, 3);
+    border-right: 1px solid nth($window-shades, 3);
+    background-position: 5px 2px;
+  }
+}
+
+.form__time-input--increase {
+  top: 0px;
+  background-image: url("../graphics/arrow-up-tiny.png");
+}
+
+.form__time-input--decrease {
+  top: 9px;
+  background-image: url("../graphics/arrow-down-tiny.png");
+}

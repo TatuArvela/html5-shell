@@ -1,0 +1,61 @@
+/* Structure
+   ========================================================================== */
+
+.well {
+  flex-grow: 1;
+  margin-top: 1px;
+  margin-left: 1px;
+  border-top: 1px solid nth($window-shades, 5);
+  border-left: 1px solid nth($window-shades, 5);
+  border-bottom: 1px solid nth($window-shades, 1);
+  border-right: 1px solid nth($window-shades, 1);
+  box-shadow: -1px -1px 0px 1px nth($window-shades, 4);
+}
+
+fieldset {
+  position: relative;
+  margin: 12px;
+  border: none;
+  background: transparent;
+  box-shadow:
+    -1px -1px 0 0px nth($window-shades, 4),
+    0 0 0 1px nth($window-shades, 1) inset,
+    0px 0px 0 0px nth($window-shades, 1),
+    -1px -1px 0 1px nth($window-shades, 4) inset;
+  background: none;
+}
+
+legend {
+  padding: 0px 2px;
+  color: nth($window-shades, 5);
+  background: nth($window-shades, 3);
+}
+
+.row {
+  margin: 0 -2px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+}
+
+hr {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid nth($window-shades, 4);
+  border-bottom: 1px solid nth($window-shades, 1);
+}
+
+label {
+  display: block;
+  margin: 3px 4px;
+  color: nth($window-shades, 5);
+
+  &.disabled {
+    color: nth($window-shades, 4) !important;
+  }
+}

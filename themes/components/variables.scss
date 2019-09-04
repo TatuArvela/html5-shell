@@ -1,0 +1,30 @@
+/**
+ * Default theme: Win 9x, 16 colors
+ */
+
+$window-shades: rgb(255, 255, 255),
+rgb(192, 199, 200),
+rgb(192, 199, 200),
+rgb(135, 136, 143),
+rgb(0, 0, 0) !default;
+$active: rgb(0, 0, 168) !default;
+$background: rgb(87, 168, 168) !default;
+
+/* Variables
+   ========================================================================== */
+
+$shell-class-name: shell !default;
+$shell: "."+$shell-class-name !default;
+
+$text: nth($window-shades, 5) !default;
+$hyperlinks: $active !default;
+
+$disabled-text: nth($window-shades, 4) !default;
+$selected-text: nth($window-shades, 1) !default;
+$selected-background: $active !default;
+
+$active-window-title-text: nth($window-shades, 1) !default;
+$active-window-title-background: $active !default;
+$inactive-window-title-text: nth($window-shades, 3) !default;
+$inactive-window-title-background: nth($window-shades, 4) !default;
+$window-background: nth($window-shades, 3) !default;

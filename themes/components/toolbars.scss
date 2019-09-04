@@ -1,0 +1,51 @@
+/* Toolbar
+   ========================================================================== */
+
+.toolbar {
+  display: flex;
+  height: 26px;
+  border-top: 1px solid nth($window-shades, 1);
+  border-left: 1px solid nth($window-shades, 1);
+  border-bottom: 1px solid nth($window-shades, 4);
+  border-right: 1px solid nth($window-shades, 4);
+
+  >.toolbar__button {
+    position: relative;
+    height: 22px;
+    width: 23px;
+    margin-top: 1px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    display: inline-block;
+
+    &:hover {
+      border-top: 1px solid nth($window-shades, 1);
+      border-left: 1px solid nth($window-shades, 1);
+      border-bottom: 1px solid nth($window-shades, 4);
+      border-right: 1px solid nth($window-shades, 4);
+      outline: none;
+    }
+
+    &:active {
+      background-position: 3px 3px;
+      border-top: 1px solid nth($window-shades, 4);
+      border-left: 1px solid nth($window-shades, 4);
+      border-bottom: 1px solid nth($window-shades, 1);
+      border-right: 1px solid nth($window-shades, 1);
+      outline: none;
+    }
+  }
+}
+
+.handle {
+  display: inline-block;
+  width: 3px;
+  height: calc(100% - 2px - 2px);
+  margin: 2px;
+  border-top: 1px solid nth($window-shades, 1);
+  border-left: 1px solid nth($window-shades, 1);
+  border-bottom: 1px solid nth($window-shades, 4);
+  border-right: 1px solid nth($window-shades, 4);
+}

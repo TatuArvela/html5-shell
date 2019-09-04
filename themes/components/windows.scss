@@ -1,0 +1,113 @@
+/* Windows
+   ========================================================================== */
+
+$window-padding: 2px;
+
+.window {
+  background: $window-background;
+  border-bottom: 1px solid nth($window-shades, 4);
+  border-left: 1px solid nth($window-shades, 1);
+  border-radius: 0;
+  border-right: 1px solid nth($window-shades, 4);
+  border-top: 1px solid nth($window-shades, 1);
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  padding: $window-padding;
+  position: absolute;
+
+  &:before {
+    border-bottom: 1px solid nth($window-shades, 5);
+    border-left: 1px solid nth($window-shades, 2);
+    border-right: 1px solid nth($window-shades, 5);
+    border-top: 1px solid nth($window-shades, 2);
+    bottom: -2px;
+    content: "";
+    left: -2px;
+    pointer-events: none;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+  }
+}
+
+$window-title-height: 18px;
+$window-title-margin-bottom: 1px;
+$window-title-icon-resolution: 16px;
+
+.window__title {
+  background: $inactive-window-title-background;
+  color: $inactive-window-title-text;
+  display: block;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  height: $window-title-height;
+  padding: 4px 3px;
+  margin-bottom: $window-title-margin-bottom;
+  text-align: left;
+  user-select: none;
+  overflow: hidden;
+
+  &--has-icon {
+    padding-left: calc(#{$window-title-icon-resolution} + 2px + 2px);
+  }
+
+  .active & {
+    background: $active-window-title-background;
+    color: $active-window-title-text;
+  }
+}
+
+.window__title__icon {
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  top: calc(#{$window-padding} + 1px);
+  left: calc(#{$window-padding} + 2px);
+  margin-right: 2px;
+  width: 16px;
+  height: 16px;
+}
+
+.window__content {
+  overflow: hidden;
+  bottom: $window-padding;
+  top: calc(#{$window-title-height} + #{$window-padding} + #{$window-title-margin-bottom});
+  right: $window-padding;
+  left: $window-padding;
+}
+
+/**
+    * Message boxes
+    */
+
+.window--message-box {
+  max-width: 635px;
+  min-height: 115px;
+  min-width: 190px;
+
+  & .window__content {
+    padding: 12px;
+  }
+
+  .message-box__icon {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .message-box__text {
+    display: inline-block;
+    margin-top: 6px;
+    vertical-align: top;
+  }
+
+  .message-box__buttons {
+    margin-top: 17px;
+    text-align: center;
+
+    >.form__button {
+      display: inline-block;
+    }
+  }
+}

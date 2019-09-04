@@ -112,32 +112,38 @@ $shell.windowManager = {
 }
 
 $shell.themeManager = {
+  basePath: 'node_modules/html5-win-classic-shell/themes/',
   themes: [{
-    file: "shell/themes/win9x-16clr.css",
-    title: "Windows 9x, 16 colors"
+      file: "win9x-16clr.css",
+      title: "Windows 9x, 16 colors"
+    },
+    {
+      file: "win9x-256clr.css",
+      title: "Windows 9x, 256 colors"
+    },
+    {
+      file: "win9x-16bit.css",
+      title: "Windows 9x, High Color 16-bit"
+    },
+    {
+      file: "win9x-32bit.css",
+      title: "Windows 9x, True Color 32-bit"
+    },
+    {
+      file: "win2k.css",
+      title: "Windows 2000"
+    },
+    {
+      file: "vaporwave.css",
+      title: "ウィンドウズ"
+    }
+  ],
+  composeThemePath(theme) {
+    const basePath = this.basePath;
+    return `${basePath}${theme}`;
   },
-  {
-    file: "shell/themes/win9x-256clr.css",
-    title: "Windows 9x, 256 colors"
-  },
-  {
-    file: "shell/themes/win9x-16bit.css",
-    title: "Windows 9x, High Color 16-bit"
-  },
-  {
-    file: "shell/themes/win9x-32bit.css",
-    title: "Windows 9x, True Color 32-bit"
-  },
-  {
-    file: "shell/themes/win2k.css",
-    title: "Windows 2000"
-  },
-  {
-    file: "shell/themes/vaporwave.css",
-    title: "ウィンドウズ"
-  }],
   setTheme(theme) {
-    document.getElementById('shellTheme').setAttribute('href', theme);
+    document.getElementById('shellTheme').setAttribute('href', this.composeThemePath(theme));
   },
   createThemeSwitcher() {
     let themeSwitcher = document.createElement("div");
@@ -176,7 +182,7 @@ $shell.themeManager = {
     var defaultTheme = this.themes[0];
     var link = document.createElement("link");
     link.id = "shellTheme";
-    link.href = defaultTheme.file;
+    link.href = this.composeThemePath(defaultTheme.file);
     link.type = "text/css";
     link.rel = "stylesheet";
     link.media = "screen,print";
@@ -210,11 +216,9 @@ $shell.formEnhancer = {
       values[1] = values[1].trim().substring(0, 2);
       if (!parseInt(values[0]) || values[0] > 23 || values[0] < 0) values[0] = "00";
       if (!parseInt(values[1]) || values[1] > 59 || values[1] < 0) values[1] = "00";
-    }
-    else if (values.length === 1) {
+    } else if (values.length === 1) {
       values[1] = "00";
-    }
-    else {
+    } else {
       values = ["00", "00"]
     }
 
@@ -228,7 +232,7 @@ $shell.formEnhancer = {
       let time = moment(e.target.value, 'HH:mm');
 
       let unit = (end < 3) ? 'hours' : 'minutes';
-      (e.keyCode == 38) ? time.add(1, unit) : time.subtract(1, unit);
+      (e.keyCode == 38) ? time.add(1, unit): time.subtract(1, unit);
       e.target.value = time.format('HH:mm');
 
       document.activeElement.setSelectionRange(start, end);
