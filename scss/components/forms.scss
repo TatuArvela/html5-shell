@@ -34,7 +34,7 @@
 
 .form__input {
   height: 18px;
-  cursor: url("../cursors/text.png"), text;
+  cursor: url($path-cursors + "text.png"), text;
 }
 
 .form__button {
@@ -211,10 +211,10 @@ select:active,
 
 .form__time-input--increase {
   top: 0px;
-  background-image: url("../graphics/arrow-up-tiny.png");
+  background-image: url($path-graphics + "arrow-up-tiny.png");
 }
 
 .form__time-input--decrease {
   top: 9px;
-  background-image: url("../graphics/arrow-down-tiny.png");
+  background-image: url($path-graphics + "arrow-down-tiny.png");
 }

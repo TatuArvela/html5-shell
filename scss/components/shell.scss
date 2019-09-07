@@ -21,11 +21,11 @@
   background: $background;
   font-size: 12px;
   font-family: "Microsoft Sans Serif", sans-serif !important;
-  cursor: url("../cursors/default.png"), default !important;
+  cursor: url($path-cursors + "default.png"), default !important;
 }
 
 .progress {
-  cursor: url("../cursors/progress.png"), progress !important;
+  cursor: url($path-cursors + "progress.png"), progress !important;
 }
 
 .hidden {

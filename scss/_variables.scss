@@ -28,3 +28,6 @@ $active-window-title-background: $active !default;
 $inactive-window-title-text: nth($window-shades, 3) !default;
 $inactive-window-title-background: nth($window-shades, 4) !default;
 $window-background: nth($window-shades, 3) !default;
+
+$path-cursors: '../img/cursors/';
+$path-graphics: '../img/';

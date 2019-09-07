@@ -7,12 +7,12 @@ $background: url("https://i.redd.it/k4o8nz5vfiyy.gif");
 
 $active-window-title-background: linear-gradient(90deg, #ff6ad5, #c774e8, #ad8cff, #8795e8, #94d0ff);
 
-@import './_win-classic';
+@import '../scss/win-classic';
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
 
 .shell {
   background-size: 100% 100%;
-  cursor: url("../graphics/cursor-aesthetic.png"), auto !important;
+  cursor: url($path-graphics + "cursor-aesthetic.png"), auto !important;
 }
 
 .window {
@@ -20,37 +20,41 @@ $active-window-title-background: linear-gradient(90deg, #ff6ad5, #c774e8, #ad8cf
   transition: outline 1s;
   transform-style: preserve-3d;
 }
+
 .window.active {
   outline: 5px solid cyan;
   -webkit-animation: Vaporwave 1s linear infinite;
   -moz-animation: Vaporwave 1s linear infinite;
   animation: Vaporwave 1s linear infinite;
 }
-.window > .window__title {
+
+.window>.window__title {
   transition: background 1s;
 }
 
-@mixin keyframes($animationName)
-{
-    @-webkit-keyframes #{$animationName} {
-        @content;
-    }
-    @-moz-keyframes #{$animationName}  {
-        @content;
-    }
-    @-o-keyframes #{$animationName} {
-        @content;
-    }
-    @keyframes #{$animationName} {
-        @content;
-    }
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
 }
 
 @include keyframes(Vaporwave) {
   0% {
     outline-color: #ced9ed;
   }
-  
+
   20% {
     outline-color: #cfc7fa;
   }
