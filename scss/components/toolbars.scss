@@ -1,7 +1,7 @@
 /* Toolbar
    ========================================================================== */
 
-.toolbar {
+#{$shell} .toolbar {
   display: flex;
   height: 26px;
   border-top: 1px solid nth($window-shades, 1);
@@ -43,7 +43,7 @@
   }
 }
 
-.handle {
+#{$shell} .handle {
   display: inline-block;
   width: 3px;
   height: calc(100% - 2px - 2px);

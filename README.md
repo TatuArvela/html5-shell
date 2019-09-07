@@ -27,10 +27,25 @@
     }
     ```
 
-3. Add the script to your app, by including it in your HTML:
+3. Add the following basic structure in your HTML:
 
     ```html
-    <script src="node_modules/html5-win-classic-shell/index.js"></script>
+    <!--parent element-->
+        <div class="shell" id="#example-shell">
+            <div class="window-manager">
+                ...
+            </div>
+        </div>
+    <!--/-->
+    ```
+
+    The parent element determines the size of the shell. For a full-screen shell, substitute `<div class="shell">` with `<body class="shell">`.
+
+4. Import *html-win-classic-shell* in your app script, and initialize it with the target element, in this case the element found with `#example-shell`:
+
+    ```js
+    import Shell from "html5-win-classic-shell";
+    const shell = new Shell(document.querySelector('#example-shell'));
     ```
 
 ## Themes

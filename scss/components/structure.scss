@@ -1,7 +1,7 @@
 /* Structure
    ========================================================================== */
 
-.well {
+#{$shell} .well {
   flex-grow: 1;
   margin-top: 1px;
   margin-left: 1px;
@@ -12,7 +12,7 @@
   box-shadow: -1px -1px 0px 1px nth($window-shades, 4);
 }
 
-fieldset {
+#{$shell} fieldset {
   position: relative;
   margin: 12px;
   border: none;
@@ -25,32 +25,32 @@ fieldset {
   background: none;
 }
 
-legend {
+#{$shell} legend {
   padding: 0px 2px;
   color: nth($window-shades, 5);
   background: nth($window-shades, 3);
 }
 
-.row {
+#{$shell} .row {
   margin: 0 -2px;
   display: flex;
   flex-wrap: wrap;
 }
 
-.col {
+#{$shell} .col {
   flex-basis: 0;
   -webkit-box-flex: 1;
   flex-grow: 1;
 }
 
-hr {
+#{$shell} hr {
   margin: 0;
   padding: 0;
   border-top: 1px solid nth($window-shades, 4);
   border-bottom: 1px solid nth($window-shades, 1);
 }
 
-label {
+#{$shell} label {
   display: block;
   margin: 3px 4px;
   color: nth($window-shades, 5);

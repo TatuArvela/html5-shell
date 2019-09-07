@@ -24,11 +24,11 @@
   cursor: url($path-cursors + "default.png"), default !important;
 }
 
-.progress {
+#{$shell} .progress {
   cursor: url($path-cursors + "progress.png"), progress !important;
 }
 
-.hidden {
+#{$shell} .hidden {
   visibility: hidden !important
 }
 
@@ -40,7 +40,7 @@
   }
 }
 
-.window-manager {
+#{$shell} .window-manager {
   position: fixed;
   width: 100%;
   height: 100%;

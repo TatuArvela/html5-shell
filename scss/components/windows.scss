@@ -1,9 +1,7 @@
 /* Windows
    ========================================================================== */
 
-$window-padding: 2px;
-
-.window {
+#{$shell} .window {
   background: $window-background;
   border-bottom: 1px solid nth($window-shades, 4);
   border-left: 1px solid nth($window-shades, 1);
@@ -29,37 +27,33 @@ $window-padding: 2px;
     right: -2px;
     top: -2px;
   }
-}
 
-$window-title-height: 18px;
-$window-title-margin-bottom: 1px;
-$window-title-icon-resolution: 16px;
+  .window__title {
+    background: $inactive-window-title-background;
+    color: $inactive-window-title-text;
+    display: block;
+    font-family: "Microsoft Sans Serif", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: $window-title-height;
+    padding: 4px 3px;
+    margin-bottom: $window-title-margin-bottom;
+    text-align: left;
+    user-select: none;
+    overflow: hidden;
 
-.window__title {
-  background: $inactive-window-title-background;
-  color: $inactive-window-title-text;
-  display: block;
-  font-family: "Microsoft Sans Serif", sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  height: $window-title-height;
-  padding: 4px 3px;
-  margin-bottom: $window-title-margin-bottom;
-  text-align: left;
-  user-select: none;
-  overflow: hidden;
-
-  &--has-icon {
-    padding-left: calc(#{$window-title-icon-resolution} + 2px + 2px);
+    &--has-icon {
+      padding-left: calc(#{$window-title-icon-resolution} + 2px + 2px);
+    }
   }
 
-  .active & {
+  &.active .window__title {
     background: $active-window-title-background;
     color: $active-window-title-text;
   }
 }
 
-.window__title__icon {
+#{$shell} .window__title__icon {
   display: inline-block;
   vertical-align: middle;
   position: absolute;
@@ -70,7 +64,7 @@ $window-title-icon-resolution: 16px;
   height: 16px;
 }
 
-.window__content {
+#{$shell} .window__content {
   overflow: hidden;
   bottom: $window-padding;
   top: calc(#{$window-title-height} + #{$window-padding} + #{$window-title-margin-bottom});
@@ -82,7 +76,7 @@ $window-title-icon-resolution: 16px;
     * Message boxes
     */
 
-.window--message-box {
+#{$shell} .window--message-box {
   max-width: 635px;
   min-height: 115px;
   min-width: 190px;

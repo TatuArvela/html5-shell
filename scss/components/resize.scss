@@ -105,7 +105,7 @@ $graphics-resize-handle: 0px 12px nth($window-shades, 3),
 10px 9px nth($window-shades, 1),
 11px 8px nth($window-shades, 1);
 
-.resize-handle {
+#{$shell} .resize-handle {
   position: absolute;
   width: 1px;
   height: 1px;
