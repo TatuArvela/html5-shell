@@ -1,17 +1,20 @@
-import WindowManager from "./window-manager";
-import ThemeManager from "./theme-manager";
 import FormEnhancer from "./form-enhancer";
+import ThemeManager from "./theme-manager";
+import WindowManager from "./window-manager";
 
 export default class Shell {
   constructor(element) {
     this.element = element;
-    this.eventOperationMemory = {};
 
-    this.FormEnhancer = new FormEnhancer(this);
-    this.WindowManager = new WindowManager(this);
-    this.ThemeManager = new ThemeManager(this);
+    this.formEnhancer = new FormEnhancer(this);
+    // WindowManager depends on FormEnhancer
+    this.windowManager = new WindowManager(this);
+    // ThemeManager depends on WindowManager
+    this.themeManager = new ThemeManager(this);
+
+    // FIXME: Hack for waiting for ThemeManager to load
     setTimeout(() => {
-      this.WindowManager.initialize();
+      this.windowManager.initialize();
     }, 500);
 
     setTimeout(() => {
