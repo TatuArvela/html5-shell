@@ -27,12 +27,12 @@ export default class ThemeManager {
     document.getElementsByTagName("head")[0].appendChild(link);
   }
 
-  setTheme(theme) {
-    this.themeLink.setAttribute('href', theme);
+  setTheme(themeLink, theme) {
+    themeLink.setAttribute('href', theme);
   }
 
   spawnThemeSwitcher() {
-    const themeSwitcher = createThemeSwitcher(this.themes, this.setTheme);
+    const themeSwitcher = createThemeSwitcher(this.themes, (theme) => this.setTheme(this.themeLink, theme));
     this.shell.windowManager.addWindow(themeSwitcher);
     this.shell.windowManager.setActive(themeSwitcher);
   }
