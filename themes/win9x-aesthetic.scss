@@ -7,7 +7,7 @@ $background: url("https://i.redd.it/k4o8nz5vfiyy.gif");
 
 $active-window-title-background: linear-gradient(90deg, #ff6ad5, #c774e8, #ad8cff, #8795e8, #94d0ff);
 
-@import '../scss/win-classic';
+@import './win-classic/theme';
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
 
 .shell {

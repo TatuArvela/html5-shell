@@ -7,7 +7,7 @@ export default class ThemeManager {
   }
 
   loadThemes() {
-    this.themesBasePath = 'node_modules/html5-win-classic-shell/themes/';
+    this.themesBasePath = 'node_modules/html5-shell/themes/';
     this.themes = [];
     const defaultThemes = [{
         file: "win9x-16clr.css",
@@ -30,7 +30,7 @@ export default class ThemeManager {
         title: "Windows 2000"
       },
       {
-        file: "vaporwave.css",
+        file: "win9x-aesthetic.css",
         title: "ウィンドウズ"
       }
     ]

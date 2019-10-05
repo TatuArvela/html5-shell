@@ -9,4 +9,4 @@ $background: rgb(0, 128, 128);
 $inactive-window-title-background: linear-gradient(90deg, rgb(120, 124, 120), rgb(176, 176, 176));
 $active-window-title-background: linear-gradient(90deg, rgb(0, 0, 128), rgb(16, 132, 208));
 
-@import '../scss/win-classic';
+@import './win-classic/theme';

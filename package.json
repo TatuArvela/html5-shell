@@ -1,21 +1,21 @@
 {
-  "name": "html5-win-classic-shell",
+  "name": "html5-shell",
   "version": "1.0.0",
-  "description": "HTML5 replica of Windows Clasic Shell look and feel",
+  "description": "Framework for building user interfaces that imitate desktop applications",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TatuArvela/html5-win-classic-shell.git"
+    "url": "git+https://github.com/TatuArvela/html5-shell.git"
   },
   "author": "Tatu Arvela",
   "license": "EUPL-1.2",
   "bugs": {
-    "url": "https://github.com/TatuArvela/html5-win-classic-shell/issues"
+    "url": "https://github.com/TatuArvela/html5-shell/issues"
   },
-  "homepage": "https://github.com/TatuArvela/html5-win-classic-shell#readme",
+  "homepage": "https://github.com/TatuArvela/html5-shell#readme",
   "dependencies": {
     "moment": "^2.24.0"
   }
