@@ -13,7 +13,7 @@ export default class WindowManager {
     e.preventDefault();
 
     let mem = this.Shell.eventOperationMemory;
-    mem.element = e.target.parentElement;
+    mem.element = e.target.closest(".window");
     this.setActive(mem.element);
 
     mem.prevClientX = e.clientX;
@@ -27,7 +27,6 @@ export default class WindowManager {
     e.preventDefault();
 
     let mem = this.Shell.eventOperationMemory;
-    const windowMargin = 1;
 
     if (event.button === 0) {
       mem.xOffset = mem.prevClientX - e.clientX;
@@ -35,17 +34,30 @@ export default class WindowManager {
       mem.prevClientX = e.clientX;
       mem.prevClientY = e.clientY;
 
-      let xPos = mem.element.offsetLeft - mem.xOffset - windowMargin;
-      if (xPos < 0) xPos = 0;
-      if (xPos > this.Shell.element.offsetWidth - 5) xPos = this.Shell.element.offsetWidth - 5;
+      let xPos = mem.element.offsetLeft - mem.xOffset;
+      let yPos = mem.element.offsetTop - mem.yOffset;
 
-      let yPos = mem.element.offsetTop - mem.yOffset - windowMargin;
-      if (yPos < 0) yPos = 0;
-      if (yPos > this.Shell.element.offsetHeight - 5) yPos = this.Shell.element.offsetHeight - 5;
-
-      mem.element.style.left = xPos + "px";
-      mem.element.style.top = yPos + "px";
+      this.updateWindowPosition(mem.element, xPos, yPos);
     }
+  }
+
+  updateWindowPosition(element, _xPos, _yPos) {
+    const windowMargin = 1;
+
+    let xPos = _xPos !== undefined ? _xPos : element.offsetLeft;
+    let yPos = _yPos !== undefined ? _yPos : element.offsetTop;
+
+    xPos = xPos - windowMargin;
+    yPos = yPos - windowMargin;
+
+    if (xPos < 0) xPos = 0;
+    if (xPos > this.Shell.element.offsetWidth - 5) xPos = this.Shell.element.offsetWidth - 5;
+
+    if (yPos < 0) yPos = 0;
+    if (yPos > this.Shell.element.offsetHeight - 5) yPos = this.Shell.element.offsetHeight - 5;
+
+    element.style.left = xPos + "px";
+    element.style.top = yPos + "px";
   }
 
   endDrag() {
@@ -54,7 +66,7 @@ export default class WindowManager {
   }
 
   initializeWindow(window) {
-    //this.setWindowSizeAttributes(window);
+    this.setWindowSizeAttributes(window);
     /* this.Shell.element.querySelectorAll('.window--resizable').forEach(window => {
       console.log("make resizable")
         window.resizable({
@@ -97,7 +109,6 @@ export default class WindowManager {
     const windowManagerElement = this.Shell.element.querySelector('.window-manager');
 
     windowManagerElement.addEventListener("mousedown", (e) => {
-
       const windowTitle = e.target.closest(".window__title");
       if (windowTitle !== null) {
         windowTitle.setAttribute("draggable", "");
@@ -122,6 +133,16 @@ export default class WindowManager {
       }
 
       e.stopPropagation();
+    });
+
+    window.addEventListener("resize", (e) => {
+      const windowManagerElement = this.Shell.element.querySelector('.window-manager');
+      const windows = windowManagerElement.querySelectorAll('.window');
+
+      for (let i = 0; i < windows.length; i++) {
+        const element = windows[i];
+        this.updateWindowPosition(element);
+      }
     });
   }
 }
