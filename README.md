@@ -1,14 +1,13 @@
 # html5-shell
 
-*html5-shell* is a framework for building user interfaces that imitate desktop applications.
+| In development, pre-release |
+| --- |
 
-* **Why does this exist?** Retro and nostalgia are in right now. This framework allows you to use imitation desktop windows in your web site or web app. Basic functionalities like stacking, moving and resizing windows are available out of the box.
-* **How do I use it?** Currently *html5-shell* is source only. The Sass theme files have to be compiled to CSS, and the script file requires *Moment.js*. The easiest way is to use *Parcel* or a similar bundler. Detailed instructions are available in section [Installation and usage](#installation-and-usage).
-* **Where is it used?** I have made a couple of fun projects that use this, [Time 2000](https://github.com/TatuArvela/Time-2000) and [Web Voyager](https://github.com/TatuArvela/Web-Voyager).
+**Shell** (**html5-shell**) is a framework that imitates **graphical (GUI) shells**. It can be used to build web apps that imitate desktop applications. Basic functionalities like stacking, moving and resizing windows are available out of the box.
 
-## Installation and usage
+## Installation
 
-**html5-shell** will initialize the shell and windows detected by it automatically after importing it.
+Currently, **Shell** is available as ES6 and Sass _source only_. The easiest way is to use **Parcel** or a similar bundler.
 
 ### Parcel
 
@@ -41,12 +40,16 @@
 
     The parent element determines the size of the shell. For a full-screen shell, substitute `<div class="shell">` with `<body class="shell">`.
 
+    More information about classes used by **Shell** is available in [Classes](#classes).
+
 4. Import *html-shell* in your app script, and initialize it with the target element, in this case the element found with `#example-shell`:
 
     ```js
     import Shell from "html5-shell";
     const shell = new Shell(document.querySelector('#example-shell'));
     ```
+
+    More information about **Shell** internals is available in [Internals](#internals).
 
 ## Themes
 
@@ -62,3 +65,38 @@
 * win9x-aesthetic: **ウィンドウズ**
 
 ## Classes
+
+**TODO**  
+**Shell** uses the Block Element Modifier (BEM) methodology for class naming.
+
+## Internals
+
+**Shell** uses ES6 classes for its internal structure.
+
+**Shell** has three submodules: FormEnhancer, ThemeManager and WindowManager.
+
+### FormEnhancer
+
+**FormEnhancer** initializes additional functionality in special form components, such as time inputs.
+
+* **timeInputEnhancer**: Adds stepper buttons and keypress logic to time inputs
+
+### ThemeManager
+
+**ThemeManager** adds a dedicated stylesheet link element to `head` for **Shell**, and initializes theme switching functionality.
+
+* **themeLoader**: Parses theme catalogue from **config**
+* **themeSwitcher**: Builds a theme switcher window
+
+### WindowManager
+
+**WindowManager** handles all actions related to windowing.
+
+* **drag**: Adds window dragging operation event handlers
+* **position**: Makes sure windows stay inside the view area
+* **size**: Handles window sizing and resizing
+* **stacking**: Handles activating and stacking windows
+
+## Samples
+
+**html5-shell** is built from Windows Classic imitations used in my sample projects [Time 2000](https://github.com/TatuArvela/Time-2000) and [Web Voyager](https://github.com/TatuArvela/Web-Voyager), and will replace their implementations when sufficiently mature.
