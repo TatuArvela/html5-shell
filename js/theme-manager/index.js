@@ -2,38 +2,27 @@ import {
   loadThemes
 } from './theme-loader';
 import {
-  createThemeSwitcher
+  spawnThemeSwitcher
 } from './theme-switcher';
+import {
+  createThemeLink
+} from './theme-link';
 
-export default class ThemeManager {
-  constructor(shell) {
-    this.shell = shell;
-    this.themes = loadThemes();
-    this.createThemeLink();
-    this.spawnThemeSwitcher();
-  }
+const ThemeManager = (shell, onLoad) => {
+  const themes = loadThemes();
+  const themeLink = createThemeLink(document, themes[0].file, onLoad);
 
-  createThemeLink() {
-    let link = document.createElement("link");
-    link.id = "shellTheme";
-    link.href = this.themes[0].file;
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.media = "screen,print";
-
-    this.themeLink = link;
-
-    // TODO: Make this more versatile
-    document.getElementsByTagName("head")[0].appendChild(link);
-  }
-
-  setTheme(themeLink, theme) {
+  const setTheme = (theme) => {
     themeLink.setAttribute('href', theme);
   }
 
-  spawnThemeSwitcher() {
-    const themeSwitcher = createThemeSwitcher(this.themes, (theme) => this.setTheme(this.themeLink, theme));
-    this.shell.windowManager.addWindow(themeSwitcher);
-    this.shell.windowManager.setActive(themeSwitcher);
+  spawnThemeSwitcher(shell, themes, setTheme);
+
+  return {
+    shell,
+    themes,
+    themeLink,
   }
-}
+};
+
+export default ThemeManager;

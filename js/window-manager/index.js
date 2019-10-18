@@ -13,46 +13,52 @@ import {
   setActive,
 } from './stacking';
 
-export default class WindowManager {
-  constructor(shell) {
-    this.shell = shell;
-    this.element = shell.element.querySelector('.window-manager');
-  }
+const WindowManager = shell => {
+  const element = shell.element.querySelector('.window-manager');
 
-  initialize() {
-    this.addEventListeners();
-    this.initializeAllWindows();
-  }
+  const addWindow = windowElement => {
+    element.append(windowElement);
+  };
 
-  initializeWindow(windowElement) {
+  const initializeWindow = windowElement => {
     setWindowSizeAttributes(windowElement);
-    /* this.shell.element.querySelectorAll('.window--resizable').forEach(window => {
+    /* element.querySelectorAll('.window--resizable').forEach(window => {
       console.log("make resizable")
         window.resizable({
           start: makeActive,
           containment: 'body'
         });
     }); */
-    this.shell.formEnhancer.enhanceForms(windowElement);
+    shell.formEnhancer.enhanceForms(windowElement);
   }
 
-  initializeAllWindows() {
-    this.element.querySelectorAll('.window').forEach((windowElement) => {
-      this.initializeWindow(windowElement);
+  const initializeAllWindows = () => {
+    element.querySelectorAll('.window').forEach(windowElement => {
+      initializeWindow(windowElement);
     });
   }
 
-  addWindow(windowElement) {
-    this.element.append(windowElement);
+  const addEventListeners = () => {
+    addDragEventListeners(element, updateWindowPosition);
+    addPositionEventListeners(element);
+    addStackingEventListeners(element);
   }
 
-  setActive(windowElement) {
-    return setActive(windowElement);
-  }
+  const initialize = () => {
+    addEventListeners();
+    initializeAllWindows();
+  };
 
-  addEventListeners() {
-    addDragEventListeners(this.element, updateWindowPosition);
-    addPositionEventListeners(this.element);
-    addStackingEventListeners(this.element);
+  return {
+    shell,
+    element,
+    initialize,
+    initializeWindow,
+    initializeAllWindows,
+    addWindow,
+    addEventListeners,
+    setActive,
   }
 }
+
+export default WindowManager;

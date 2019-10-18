@@ -2,23 +2,20 @@ import FormEnhancer from "./form-enhancer";
 import ThemeManager from "./theme-manager";
 import WindowManager from "./window-manager";
 
-export default class Shell {
-  constructor(element) {
-    this.element = element;
+const Shell = (element) => {
+  let shell = {
+    element,
+  };
 
-    this.formEnhancer = new FormEnhancer(this);
-    // WindowManager depends on FormEnhancer
-    this.windowManager = new WindowManager(this);
-    // ThemeManager depends on WindowManager
-    this.themeManager = new ThemeManager(this);
+  shell.formEnhancer = FormEnhancer(shell);
+  shell.windowManager = WindowManager(shell);
+  shell.themeManager = ThemeManager(shell, () => shell.windowManager.initialize());
 
-    // FIXME: Hack for waiting for ThemeManager to load
-    setTimeout(() => {
-      this.windowManager.initialize();
-    }, 500);
+  setTimeout(() => {
+    shell.element.classList.add("ready");
+  }, 2000);
 
-    setTimeout(() => {
-      this.element.classList.add("ready");
-    }, 2000);
-  }
+  return shell;
 }
+
+export default Shell;

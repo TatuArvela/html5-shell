@@ -1,18 +1,18 @@
 const createThemeSwitcher = (themes, setTheme) => {
-  let themeSwitcher = document.createElement("div");
+  const themeSwitcher = document.createElement("div");
   themeSwitcher.classList.add("window")
 
-  let windowTitle = document.createElement("div");
+  const windowTitle = document.createElement("div");
   windowTitle.classList.add("window__title")
   windowTitle.innerHTML = "Theme Switcher";
 
-  let windowContent = document.createElement("div");
+  const windowContent = document.createElement("div");
   windowContent.classList.add("window__content");
 
-  let themeSelect = document.createElement("select");
+  const themeSelect = document.createElement("select");
   themeSelect.classList.add("form__select");
   themes.forEach(theme => {
-    let themeOption = document.createElement("option");
+    const themeOption = document.createElement("option");
     themeOption.value = theme.file;
     themeOption.innerHTML = theme.title;
     themeSelect.append(themeOption);
@@ -30,6 +30,12 @@ const createThemeSwitcher = (themes, setTheme) => {
   return themeSwitcher;
 }
 
+const spawnThemeSwitcher = (shell, themes, setTheme) => {
+  const themeSwitcher = createThemeSwitcher(themes, setTheme);
+  shell.windowManager.addWindow(themeSwitcher);
+  shell.windowManager.setActive(themeSwitcher);
+}
+
 export {
-  createThemeSwitcher
+  spawnThemeSwitcher
 };
