@@ -61,6 +61,10 @@ const enhanceTimeInput = (input) => {
     e.preventDefault();
     handleTimeButtonClick(e.target.getAttribute('id'));
   });
+  decrease.addEventListener('click', (e) => {
+    e.preventDefault();
+    input.focus();
+  });
   input.after(decrease);
 
   const increase = document.createElement('button');
@@ -70,6 +74,10 @@ const enhanceTimeInput = (input) => {
   increase.addEventListener('mousedown', (e) => {
     e.preventDefault();
     handleTimeButtonClick(e.target.getAttribute('id'));
+  });
+  increase.addEventListener('click', (e) => {
+    e.preventDefault();
+    input.focus();
   });
   input.after(increase);
 
