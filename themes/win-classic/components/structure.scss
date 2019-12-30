@@ -17,10 +17,8 @@
   margin: 12px;
   border: none;
   background: transparent;
-  box-shadow:
-    -1px -1px 0 0px nth($window-shades, 4),
-    0 0 0 1px nth($window-shades, 1) inset,
-    0px 0px 0 0px nth($window-shades, 1),
+  box-shadow: -1px -1px 0 0px nth($window-shades, 4),
+    0 0 0 1px nth($window-shades, 1) inset, 0px 0px 0 0px nth($window-shades, 1),
     -1px -1px 0 1px nth($window-shades, 4) inset;
   background: none;
 }

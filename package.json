@@ -1,22 +1,97 @@
 {
+  "//0": [
+    "-------------------------------------------------------------------------",
+    "PACKAGE PROPERTIES"
+  ],
   "name": "html5-shell",
   "version": "1.0.0",
-  "description": "Framework for building user interfaces that imitate desktop applications",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Desktop application imitation HTML5 framework",
+  "keywords": [],
+  "author": "Tatu Arvela",
+  "license": "EUPL-1.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TatuArvela/html5-shell.git"
   },
-  "author": "Tatu Arvela",
-  "license": "EUPL-1.2",
   "bugs": {
     "url": "https://github.com/TatuArvela/html5-shell/issues"
   },
   "homepage": "https://github.com/TatuArvela/html5-shell#readme",
+  "//1": [
+    "-------------------------------------------------------------------------",
+    "INSTALLATION AND RUNNING"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src themes",
+    "stylelint": "stylelint src themes"
+  },
   "dependencies": {
     "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^24.9.0",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "sass": "^1.22.9",
+    "stylelint": "^12.0.1",
+    "stylelint-config-prettier": "^8.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-selector-bem-pattern": "^2.1.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.4"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "browserslist": [
+    "last 2 chrome  version",
+    "last 2 firefox version"
+  ],
+  "//2": [
+    "-------------------------------------------------------------------------",
+    "COMMAND-SPECIFIC PROPERTIES"
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "airbnb-typescript/base",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "sort-imports": "error"
+    },
+    "ignorePatterns": [
+      "node_modules",
+      "dist"
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-prettier/recommended"
+    ],
+    "ignoreFiles": [
+      "**/*.png"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "preset": "ts-jest"
   }
 }

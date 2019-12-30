@@ -1,0 +1,17 @@
+$window-shades: rgb(247, 251, 247), rgb(216, 220, 216), rgb(184, 188, 184),
+  rgb(120, 124, 120), rgb(0, 0, 0);
+$active: rgb(0, 0, 120);
+$background: rgb(0, 124, 120);
+
+$inactive-window-title-background: linear-gradient(
+  90deg,
+  rgb(120, 124, 120),
+  rgb(176, 176, 176)
+);
+$active-window-title-background: linear-gradient(
+  90deg,
+  rgb(0, 0, 120),
+  rgb(8, 128, 200)
+);
+
+@import './base-theme';

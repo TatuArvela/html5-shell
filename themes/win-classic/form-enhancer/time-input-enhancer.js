@@ -1,53 +1,55 @@
-import moment from "moment";
+import moment from 'moment';
 
-const handleTimeButtonClick = (eventTarget) => {
-  let [method, target] = eventTarget.split("-");
+const handleTimeButtonClick = eventTarget => {
+  const [method, target] = eventTarget.split('-');
   document.getElementById(target).focus();
-  let activeInput = document.activeElement;
+  const activeInput = document.activeElement;
   if (activeInput.getAttribute('id') != target) {
     document.activeElement = document.getElementById(target);
   }
-  let keyCode = (method == "dec") ? 40 : 38;
-  let keypress = new Event("keypress");
+  const keyCode = method == 'dec' ? 40 : 38;
+  const keypress = new Event('keypress');
   keypress.which = keyCode;
   keypress.keyCode = keyCode;
   activeInput.dispatchEvent(keypress);
-}
+};
 
-const handleTimeBlur = (e) => {
+const handleTimeBlur = e => {
   let values = e.target.value.split(':');
 
   if (values.length === 2) {
     values[0] = values[0].trim().substring(0, 2);
     values[1] = values[1].trim().substring(0, 2);
-    if (!parseInt(values[0]) || values[0] > 23 || values[0] < 0) values[0] = "00";
-    if (!parseInt(values[1]) || values[1] > 59 || values[1] < 0) values[1] = "00";
+    if (!parseInt(values[0]) || values[0] > 23 || values[0] < 0)
+      values[0] = '00';
+    if (!parseInt(values[1]) || values[1] > 59 || values[1] < 0)
+      values[1] = '00';
   } else if (values.length === 1) {
-    values[1] = "00";
+    values[1] = '00';
   } else {
-    values = ["00", "00"]
+    values = ['00', '00'];
   }
 
-  e.target.value = moment(values[0] + ':' + values[1], 'HH:mm').format('HH:mm');
-}
+  e.target.value = moment(`${values[0]}:${values[1]}`, 'HH:mm').format('HH:mm');
+};
 
-const handleTimeKeypress = (e) => {
+const handleTimeKeypress = e => {
   if (e.keyCode == 38 || e.keyCode == 40) {
-    let start = document.activeElement.selectionStart;
-    let end = document.activeElement.selectionEnd;
+    const start = document.activeElement.selectionStart;
+    const end = document.activeElement.selectionEnd;
 
-    let time = moment(e.target.value, 'HH:mm');
+    const time = moment(e.target.value, 'HH:mm');
 
-    let unit = (end < 3) ? 'hours' : 'minutes';
-    (e.keyCode == 38) ? time.add(1, unit): time.subtract(1, unit);
+    const unit = end < 3 ? 'hours' : 'minutes';
+    e.keyCode == 38 ? time.add(1, unit) : time.subtract(1, unit);
     e.target.value = time.format('HH:mm');
 
     document.activeElement.setSelectionRange(start, end);
     e.preventDefault();
   }
-}
+};
 
-const enhanceTimeInput = (input) => {
+const enhanceTimeInput = input => {
   const wrapper = document.createElement('div');
   wrapper.classList.add('form__time-input-group');
   input.parentNode.insertBefore(wrapper, input);
@@ -55,13 +57,13 @@ const enhanceTimeInput = (input) => {
 
   const decrease = document.createElement('button');
   decrease.setAttribute('class', 'form__button form__time-input--decrease');
-  decrease.setAttribute('id', 'dec-' + input.getAttribute('id'));
+  decrease.setAttribute('id', `dec-${input.getAttribute('id')}`);
   decrease.setAttribute('tabIndex', '-1');
-  decrease.addEventListener('mousedown', (e) => {
+  decrease.addEventListener('mousedown', e => {
     e.preventDefault();
     handleTimeButtonClick(e.target.getAttribute('id'));
   });
-  decrease.addEventListener('click', (e) => {
+  decrease.addEventListener('click', e => {
     e.preventDefault();
     input.focus();
   });
@@ -69,31 +71,31 @@ const enhanceTimeInput = (input) => {
 
   const increase = document.createElement('button');
   increase.setAttribute('class', 'form__button form__time-input--increase');
-  increase.setAttribute('id', 'inc-' + input.getAttribute('id'));
+  increase.setAttribute('id', `inc-${input.getAttribute('id')}`);
   increase.setAttribute('tabIndex', '-1');
-  increase.addEventListener('mousedown', (e) => {
+  increase.addEventListener('mousedown', e => {
     e.preventDefault();
     handleTimeButtonClick(e.target.getAttribute('id'));
   });
-  increase.addEventListener('click', (e) => {
+  increase.addEventListener('click', e => {
     e.preventDefault();
     input.focus();
   });
   input.after(increase);
 
-  input.onblur = (e) => handleTimeBlur(e);
-  input.onkeydown = (e) => handleTimeKeypress(e);
-  input.onkeypress = (e) => handleTimeKeypress(e);
+  input.onblur = e => handleTimeBlur(e);
+  input.onkeydown = e => handleTimeKeypress(e);
+  input.onkeypress = e => handleTimeKeypress(e);
   input.setAttribute('data-enhanced', 'true');
-}
+};
 
-const enhanceTimeInputs = (target) => {
-  const timeInputs = target.querySelectorAll('input[data-type="time"]:not([data-enhanced="true"])');
+const enhanceTimeInputs = target => {
+  const timeInputs = target.querySelectorAll(
+    'input[data-type="time"]:not([data-enhanced="true"])'
+  );
   for (let i = 0; i < timeInputs.length; i++) {
     enhanceTimeInput(timeInputs[i]);
   }
-}
+};
 
-export {
-  enhanceTimeInputs
-}
+export { enhanceTimeInputs };

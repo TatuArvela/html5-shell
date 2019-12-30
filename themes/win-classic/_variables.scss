@@ -2,11 +2,8 @@
  * Default theme: Win 9x, 16 colors
  */
 
-$window-shades: rgb(255, 255, 255),
-rgb(192, 199, 200),
-rgb(192, 199, 200),
-rgb(135, 136, 143),
-rgb(0, 0, 0) !default;
+$window-shades: rgb(255, 255, 255), rgb(192, 199, 200), rgb(192, 199, 200),
+  rgb(135, 136, 143), rgb(0, 0, 0) !default;
 $active: rgb(0, 0, 168) !default;
 $background: rgb(87, 168, 168) !default;
 
@@ -14,7 +11,7 @@ $background: rgb(87, 168, 168) !default;
    ========================================================================== */
 
 $shell-class-name: shell !default;
-$shell: "."+$shell-class-name !default;
+$shell: '.' + $shell-class-name !default;
 
 $text: nth($window-shades, 5) !default;
 $hyperlinks: $active !default;

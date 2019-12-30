@@ -20,7 +20,7 @@
     border-right: 1px solid nth($window-shades, 5);
     border-top: 1px solid nth($window-shades, 2);
     bottom: -2px;
-    content: "";
+    content: '';
     left: -2px;
     pointer-events: none;
     position: absolute;
@@ -32,7 +32,7 @@
     background: $inactive-window-title-background;
     color: $inactive-window-title-text;
     display: block;
-    font-family: "Microsoft Sans Serif", sans-serif;
+    font-family: 'Microsoft Sans Serif', sans-serif;
     font-size: 12px;
     font-weight: bold;
     height: $window-title-height;
@@ -67,7 +67,9 @@
 #{$shell} .window__content {
   overflow: hidden;
   bottom: $window-padding;
-  top: calc(#{$window-title-height} + #{$window-padding} + #{$window-title-margin-bottom});
+  top: calc(
+    #{$window-title-height} + #{$window-padding} + #{$window-title-margin-bottom}
+  );
   right: $window-padding;
   left: $window-padding;
 }
@@ -100,7 +102,7 @@
     margin-top: 17px;
     text-align: center;
 
-    >.form__button {
+    > .form__button {
       display: inline-block;
     }
   }

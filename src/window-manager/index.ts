@@ -1,19 +1,10 @@
-import {
-  addDragEventListeners
-} from './drag';
-import {
-  addPositionEventListeners,
-  updateWindowPosition,
-} from './position';
-import {
-  setWindowSizeAttributes
-} from './size';
-import {
-  addStackingEventListeners,
-  setActive,
-} from './stacking';
+import { addPositionEventListeners, updateWindowPosition } from './position';
+import { addStackingEventListeners, setActive } from './stacking';
+import { Shell } from '../types';
+import { addDragEventListeners } from './drag';
+import { setWindowSizeAttributes } from './size';
 
-const WindowManager = shell => {
+const WindowManager = (shell: Shell) => {
   const element = shell.element.querySelector('.window-manager');
 
   const addWindow = windowElement => {
@@ -29,20 +20,20 @@ const WindowManager = shell => {
           containment: 'body'
         });
     }); */
-    shell.formEnhancer.enhanceForms(windowElement);
-  }
+    // shell.formEnhancer.enhanceForms(windowElement); TODO FIXME
+  };
 
   const initializeAllWindows = () => {
     element.querySelectorAll('.window').forEach(windowElement => {
       initializeWindow(windowElement);
     });
-  }
+  };
 
   const addEventListeners = () => {
     addDragEventListeners(element, updateWindowPosition);
     addPositionEventListeners(element);
     addStackingEventListeners(element);
-  }
+  };
 
   const initialize = () => {
     addEventListeners();
@@ -58,7 +49,7 @@ const WindowManager = shell => {
     addWindow,
     addEventListeners,
     setActive,
-  }
-}
+  };
+};
 
 export default WindowManager;

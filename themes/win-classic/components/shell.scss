@@ -20,22 +20,22 @@
   color: $text;
   background: $background;
   font-size: 12px;
-  font-family: "Microsoft Sans Serif", sans-serif !important;
-  cursor: url($path-cursors + "default.png"), default !important;
+  font-family: 'Microsoft Sans Serif', sans-serif !important;
+  cursor: url($path-cursors+'default.png'), default !important;
 }
 
 #{$shell} .progress {
-  cursor: url($path-cursors + "progress.png"), progress !important;
+  cursor: url($path-cursors+'progress.png'), progress !important;
 }
 
 #{$shell} .hidden {
-  visibility: hidden !important
+  visibility: hidden !important;
 }
 
 #{$shell}:not(.ready) {
   @extend .progress;
 
-  >.window-manager {
+  > .window-manager {
     @extend .hidden;
   }
 }

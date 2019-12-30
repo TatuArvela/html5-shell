@@ -3,13 +3,19 @@
 | In development, pre-release |
 | --- |
 
-**Shell** (**html5-shell**) is a framework that imitates **graphical (GUI) shells**. It can be used to build web apps that imitate desktop applications. Basic functionalities like stacking, moving and resizing windows are available out of the box.
+A [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) framework that imitates a graphical (GUI) shell in the browser environment. 
 
-## Installation
+## Where to use it
 
-Currently, **Shell** is available as ES6 and Sass _source only_. The easiest way is to use **Parcel** or a similar bundler.
+**html5-shell** enables developers to make web apps that look and feel like traditional desktop applications.
 
-### Parcel
+**TODO** As it is a Web Component, html5-shell *may* use or be used in React or Vue apps.
+
+The default theme is classic Windows (9x, 2000) appearance, but the generic framework supports other themes as well.
+
+Basic windowing functionalities like stacking, moving and resizing windows work right out of the box.
+
+## Usage
 
 1. Add *html5-shell* as a Node.js Git dependency to package.json:
 
@@ -50,6 +56,10 @@ Currently, **Shell** is available as ES6 and Sass _source only_. The easiest way
     ```
 
     More information about **Shell** internals is available in [Internals](#internals).
+
+## Development
+
+**Shell** is built from TS and Sass source with **Parcel**.
 
 ## Themes
 

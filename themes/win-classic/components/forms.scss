@@ -10,10 +10,11 @@
   border-radius: 0;
   border-right: 1px solid nth($window-shades, 2);
   border-top: 1px solid nth($window-shades, 5);
-  box-shadow: 0.5px 0.5px 0 0.5px nth($window-shades, 1), 0 0 0 1px nth($window-shades, 4);
+  box-shadow: 0.5px 0.5px 0 0.5px nth($window-shades, 1),
+    0 0 0 1px nth($window-shades, 4);
   color: nth($window-shades, 5);
   display: block;
-  font-family: "Microsoft Sans Serif", sans-serif;
+  font-family: 'Microsoft Sans Serif', sans-serif;
   font-size: 12px;
   margin: 3px 4px;
   min-height: 13px;
@@ -34,7 +35,7 @@
 
 .form__input {
   height: 18px;
-  cursor: url($path-cursors + "text.png"), text;
+  cursor: url($path-cursors+'text.png'), text;
 }
 
 .form__button {
@@ -43,18 +44,22 @@
   min-height: 23px;
   min-width: 75px;
   outline: none;
-  box-shadow: -1px -1px 0 0 nth($window-shades, 1), 0 -1px 0 0 nth($window-shades, 1), -1px 0 0 0 nth($window-shades, 1), 0 0 0 1px nth($window-shades, 5);
+  box-shadow: -1px -1px 0 0 nth($window-shades, 1),
+    0 -1px 0 0 nth($window-shades, 1), -1px 0 0 0 nth($window-shades, 1),
+    0 0 0 1px nth($window-shades, 5);
   border-top: 1px solid nth($window-shades, 3);
   border-left: 1px solid nth($window-shades, 3);
   border-bottom: 1px solid nth($window-shades, 4);
   border-right: 1px solid nth($window-shades, 4);
   background: nth($window-shades, 3);
-  font-family: "Microsoft Sans Serif", sans-serif;
+  font-family: 'Microsoft Sans Serif', sans-serif;
   user-select: none;
 
   &:focus,
   &:active {
-    box-shadow: -1px -1px 0 0 nth($window-shades, 5), 0 -1px 0 0 nth($window-shades, 5), -1px 0 0 0 nth($window-shades, 5), 0 0 0 1px nth($window-shades, 5);
+    box-shadow: -1px -1px 0 0 nth($window-shades, 5),
+      0 -1px 0 0 nth($window-shades, 5), -1px 0 0 0 nth($window-shades, 5),
+      0 0 0 1px nth($window-shades, 5);
   }
 
   &:focus {
@@ -119,7 +124,8 @@ select:active,
 }
 
 .ui-selectmenu-menu ul li:hover,
-.ui-selectmenu-button:focus:not(.ui-selectmenu-button-open)>.ui-selectmenu-text {
+.ui-selectmenu-button:focus:not(.ui-selectmenu-button-open)
+  > .ui-selectmenu-text {
   color: nth($window-shades, 1);
   background: $active;
   border: 1px dotted #f8fc80;
@@ -164,7 +170,7 @@ select:active,
   display: block;
   margin: 3px 2px 3px 4px;
 
-  .form__input[data-type="time"] {
+  .form__input[data-type='time'] {
     -moz-appearance: none;
     margin: 0px;
     width: calc(100% - 16px);
@@ -187,7 +193,9 @@ select:active,
   background: none;
   min-height: unset;
   min-width: unset;
-  box-shadow: -1px -1px 0 0 nth($window-shades, 3), 0 -1px 0 0 nth($window-shades, 3), -1px 0 0 0 nth($window-shades, 3), 0 0 0 1px nth($window-shades, 5);
+  box-shadow: -1px -1px 0 0 nth($window-shades, 3),
+    0 -1px 0 0 nth($window-shades, 3), -1px 0 0 0 nth($window-shades, 3),
+    0 0 0 1px nth($window-shades, 5);
   border-top: 1px solid nth($window-shades, 1);
   border-left: 1px solid nth($window-shades, 1);
   border-bottom: 1px solid nth($window-shades, 4);
@@ -200,7 +208,9 @@ select:active,
     padding-left: 5px;
     padding-right: 3px;
     padding-bottom: 1px;
-    box-shadow: -1px -1px 0 0 nth($window-shades, 4), 0 -1px 0 0 nth($window-shades, 4), -1px 0 0 0 nth($window-shades, 4), 0 0 0 1px nth($window-shades, 1);
+    box-shadow: -1px -1px 0 0 nth($window-shades, 4),
+      0 -1px 0 0 nth($window-shades, 4), -1px 0 0 0 nth($window-shades, 4),
+      0 0 0 1px nth($window-shades, 1);
     border-top: 1px solid nth($window-shades, 5);
     border-left: 1px solid nth($window-shades, 5);
     border-bottom: 1px solid nth($window-shades, 3);
@@ -211,10 +221,10 @@ select:active,
 
 .form__time-input--increase {
   top: 0px;
-  background-image: url($path-graphics + "arrow-up-tiny.png");
+  background-image: url($path-graphics+'arrow-up-tiny.png');
 }
 
 .form__time-input--decrease {
   top: 9px;
-  background-image: url($path-graphics + "arrow-down-tiny.png");
+  background-image: url($path-graphics+'arrow-down-tiny.png');
 }

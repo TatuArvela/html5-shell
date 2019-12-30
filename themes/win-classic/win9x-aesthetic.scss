@@ -1,18 +1,22 @@
-$window-shades: rgb(255, 255, 255),
-rgb(253, 181, 218),
-rgb(253, 181, 218),
-rgb(164, 81, 123),
-rgb(164, 81, 123);
-$background: url("https://i.redd.it/k4o8nz5vfiyy.gif");
+$window-shades: rgb(255, 255, 255), rgb(253, 181, 218), rgb(253, 181, 218),
+  rgb(164, 81, 123), rgb(164, 81, 123);
+$background: url('https://i.redd.it/k4o8nz5vfiyy.gif');
 
-$active-window-title-background: linear-gradient(90deg, #ff6ad5, #c774e8, #ad8cff, #8795e8, #94d0ff);
+$active-window-title-background: linear-gradient(
+  90deg,
+  #ff6ad5,
+  #c774e8,
+  #ad8cff,
+  #8795e8,
+  #94d0ff
+);
 
-@import './win-classic/theme';
+@import './base-theme';
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
 
 .shell {
   background-size: 100% 100%;
-  cursor: url($path-graphics + "cursor-aesthetic.png"), auto !important;
+  cursor: url($path-graphics+'cursor-aesthetic.png'), auto !important;
 }
 
 .window {
@@ -28,7 +32,7 @@ $active-window-title-background: linear-gradient(90deg, #ff6ad5, #c774e8, #ad8cf
   animation: Vaporwave 1s linear infinite;
 }
 
-.window>.window__title {
+.window > .window__title {
   transition: background 1s;
 }
 
