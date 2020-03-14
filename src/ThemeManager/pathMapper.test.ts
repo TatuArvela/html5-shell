@@ -1,5 +1,5 @@
 import { Theme } from '../types';
-import loadThemes from './path-mapper';
+import loadThemes from './pathMapper';
 
 const mockConfig = {
   themeManager: {

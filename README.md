@@ -3,13 +3,13 @@
 | In development, pre-release |
 | --- |
 
-A [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) framework that imitates a graphical (GUI) shell in the browser environment. 
+A [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) framework that imitates a graphical (GUI) shell in the browser environment.
 
 ## Where to use it
 
 **html5-shell** enables developers to make web apps that look and feel like traditional desktop applications.
 
-**TODO** As it is a Web Component, html5-shell *may* use or be used in React or Vue apps.
+**TODO** As it is a Web Component, html5-shell *may* be used with React or Vue apps.
 
 The default theme is classic Windows (9x, 2000) appearance, but the generic framework supports other themes as well.
 

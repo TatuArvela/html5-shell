@@ -1,8 +1,8 @@
-// import Shell from './shell';
+import Shell from './Shell';
 
-// export default Shell;
+export default Shell;
 
-class Button extends HTMLElement {
-}
+// class Button extends HTMLElement {
+// }
 
-customElements.define('my-button', Button);
+// customElements.define('my-button', Button);

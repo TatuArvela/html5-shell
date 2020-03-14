@@ -11,13 +11,19 @@ export type Config = {
 };
 
 export type WindowManager = {
+  createWindow: (title: string, contentElements: HTMLElement[]) => HTMLElement;
+  element: HTMLElement;
+  setActive: (windowElement: HTMLElement) => void;
   shell: Shell;
-  themes: Theme[];
-  themeLink: HTMLElement;
-  initialize: Function;
+  showWindow: (window: HTMLElement) => void;
 };
 
-export type ThemeManager = object;
+export type ThemeManager = {
+  shell: Shell;
+  themeLink: HTMLElement;
+  themes: Theme[];
+  themeSwitcher: HTMLElement;
+};
 
 export type Shell = {
   element?: HTMLElement;

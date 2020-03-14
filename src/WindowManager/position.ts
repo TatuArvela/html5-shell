@@ -1,8 +1,8 @@
 const updateWindowPosition = (
-  containerElement,
-  windowElement,
-  _windowX,
-  _windowY
+  containerElement: HTMLElement,
+  windowElement: HTMLElement,
+  _windowX?: number,
+  _windowY?: number
 ) => {
   const windowMargin = 1;
 
@@ -20,16 +20,18 @@ const updateWindowPosition = (
   if (windowY > containerElement.offsetHeight - 5)
     windowY = containerElement.offsetHeight - 5;
 
+  // eslint-disable-next-line no-param-reassign
   windowElement.style.left = `${windowX}px`;
+  // eslint-disable-next-line no-param-reassign
   windowElement.style.top = `${windowY}px`;
 };
 
-const addPositionEventListeners = windowManagerElement => {
-  window.addEventListener('resize', e => {
+const addPositionEventListeners = (windowManagerElement: HTMLElement) => {
+  window.addEventListener('resize', () => {
     const windows = windowManagerElement.querySelectorAll('.window');
 
-    for (let i = 0; i < windows.length; i++) {
-      const element = windows[i];
+    for (let i = 0; i < windows.length; i += 1) {
+      const element = windows[i] as HTMLElement;
       updateWindowPosition(windowManagerElement, element);
     }
   });

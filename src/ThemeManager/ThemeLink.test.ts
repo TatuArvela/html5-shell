@@ -1,11 +1,11 @@
-import createThemeLink from './link-element';
+import ThemeLink from './ThemeLink';
 
 const mockOnLoad = jest.fn(() => {
   return true;
 });
 
 test('Theme link should be constructed correctly', () => {
-  expect(createThemeLink(document, 'test', mockOnLoad)).toMatchInlineSnapshot(`
+  expect(ThemeLink(document, 'test', mockOnLoad)).toMatchInlineSnapshot(`
 <link
   href="test"
   id="shellTheme"

@@ -1,4 +1,4 @@
-const inactivateWindows = windowManagerElement => {
+const inactivateWindows = (windowManagerElement: HTMLElement) => {
   windowManagerElement
     .querySelectorAll('.window.active')
     .forEach(windowElement => {
@@ -6,14 +6,20 @@ const inactivateWindows = windowManagerElement => {
     });
 };
 
-const setActive = windowElement => {
-  const windowManagerElement = windowElement.closest('.window-manager');
+// TODO: Comment this better
+const setActive = (windowElement: HTMLElement) => {
+  const windowManagerElement = windowElement.closest(
+    '.window-manager'
+  ) as HTMLElement;
   // Shuffling windows in DOM makes a different element active
   const { activeElement } = document;
+
   inactivateWindows(windowManagerElement);
+
   windowElement.parentElement.appendChild(windowElement);
   windowElement.classList.add('active');
-  activeElement.focus(); // Restore active element
+
+  (activeElement as HTMLElement).focus(); // Restore active element
 };
 
 const mousedownListener = e => {
